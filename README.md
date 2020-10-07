@@ -9,7 +9,7 @@ Welcome to the Street Ends mobile app Github. The Steet Ends app aims to offer y
 ### :apple:  Deployment on a Mac
 
 
-#### :hammer:  Setting Up Dev Environment
+### :hammer:  Setting Up Dev Environment
 
 To properly set up your local machine for React Native development, you will need the following:
 1. Brew Package Manager
@@ -50,7 +50,7 @@ Next, select the `SDK Tools` tab, check the `Show Package Details` box, expand t
 Click `Apply` to install the Android SDK and tools.
 
 
-#### :page_facing_up:  Setting Up Your Environment Variable
+### :page_facing_up:  Setting Up Your Environment Variable
 
 
 Open up a terminal in your home directory, and run the following command to create a new text file:
@@ -67,7 +67,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 Save the file, and your dev environment should now be ready!
 
-#### :runner:  Running the App
+### :runner:  Running the App
 
 Start by cloning the repo to your local machine using your preferred method. Then:
 1. Open a new terminal window at your project root directory.
