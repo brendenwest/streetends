@@ -1,13 +1,16 @@
 # :evergreen_tree: Street Ends Mobile 
 Shoreline Access for Everyone
 
-Welcome to the Street Ends mobile app Github. The Steet Ends app aims to offer you an easy and convenient resource for finding respite in the public parks that dot Seattle's waterfront, and discovering the story behind the people and communities who make it all possible. This app is a work-in-progress, built using React Native for cross platform support, made by Loan Pham, David Prismantas, Alex Sutherland, Jennifer Villacis, and Andy Wilson.
+Welcome to the Street Ends mobile app Github. The Steet Ends app aims to offer you an easy and convenient resource for finding respite in the public parks that dot Seattle's waterfront, and discover the story behind the people and communities who make it all possible. This app is a work-in-progress, built using React Native for cross platform support, made by Loan Pham, David Prismantas, Alex Sutherland, Jennifer Villacis, and Andy Wilson.
 
 ## :computer: Local Deployment Instructions
 
-### :apple: Deployment on a Mac
 
-#### :hammer: Setting Up Dev Environment
+### :apple:  Deployment on a Mac
+
+
+#### :hammer:  Setting Up Dev Environment
+
 To properly set up your local machine for React Native development, you will need the following:
 1. Brew Package Manager
 2. Node
@@ -30,13 +33,13 @@ brew install watchman
 brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 ```
 
-Next, install `[Android Studio](https://developer.android.com/studio/index.html)`, and make sure the following things are checked during installation:
+Next, [install Android Studio](https://developer.android.com/studio/index.html), and make sure the following items are checked during installation:
 - Android SDK
 - Android SDK Platform
 - Android Virtual Device
 - Performance (Intel ® HAXM)
 
-Configure the Android SDK in Android Studio by opening up `Preferences` and then under `Appearance & Behavior > System Settings > Android SDK`, select the `SDK Platforms` tab, check the `Show Package Details` box in the bottom right corner, expand the Android 10 (Q) section, and make sure the following options are checked:
+Configure the Android SDK in Android Studio by opening up `Preferences` and then under `Appearance & Behavior` > `System Settings` > `Android SDK`, select the `SDK Platforms` tab, check the `Show Package Details` box in the bottom right corner, expand the `Android 10 (Q)` section, and make sure the following options are checked:
 
 - Android SDK Platform 29
 - Intel x86 Atom_64 System Image
@@ -46,7 +49,9 @@ Next, select the `SDK Tools` tab, check the `Show Package Details` box, expand t
 
 Click `Apply` to install the Android SDK and tools.
 
-#### :page_facing_up: Setting Up Your Environment Variable
+
+#### :page_facing_up:  Setting Up Your Environment Variable
+
 
 Open up a terminal in your home directory, and run the following command to create a new text file:
 ```shell
@@ -62,7 +67,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 Save the file, and your dev environment should now be ready!
 
-#### :runner: Running the App
+#### :runner:  Running the App
+
 Start by cloning the repo to your local machine using your preferred method. Then:
 1. Open a new terminal window at your project root directory.
 3. Run the following command to install the needed dependencies:
