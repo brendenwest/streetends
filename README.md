@@ -4,7 +4,7 @@ Shoreline Access for Everyone
 Welcome to the Street Ends mobile app Github. The Steet Ends app aims to offer you an easy and convenient resource for finding respite in the public parks that dot Seattle's waterfront, and discover the story behind the people and communities who make it all possible. This app is a work-in-progress, built using React Native for cross platform support, made by Loan Pham, David Prismantas, Alex Sutherland, Jennifer Villacis, and Andy Wilson.
 
 ## :computer: Local Deployment Instructions
-
+For the official and most in-depth deployment instructions, reference the official React Native docs at `https://reactnative.dev/docs/environment-setup`. If you'd like to get up and running quickly, see below if you're on a Mac.
 
 ### :apple:  Deployment on a Mac
 
@@ -65,7 +65,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
-Save the file, and your dev environment should now be ready!
+Hit ctrl+s to save the file, and your dev environment should now be ready!
 
 ### :runner:  Running the App
 
