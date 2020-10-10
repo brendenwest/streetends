@@ -38,7 +38,7 @@ const App: () => React$Node = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Friends of Street Ends</Text>
               <Text style={styles.sectionDescription}>
-                Shoreline Access for Everyone
+                Shoreline Access for Everyone Today
               </Text>
             </View>
           </View>
