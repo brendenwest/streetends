@@ -4,11 +4,20 @@ import 'react-native-gesture-handler';
 
 const ContactScreen = ( {navigation} ) => {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>About Screen</Text>
-        <Button 
+<View style={{
+  flex:1,
+  flexDirection:'column',
+  justifyContent: 'flex-start',
+  alignItems:'stretch',
+}}>
+
+      <View style={{backgroundColor:'powderblue'}} />
+      <Text>Test</Text>
+      <View style={{backgroundColor:'yellow'}} />
+        <Text>Contact Us</Text>
+        <Button
         title='Go Back Home'
-        onPress={() => navigation.navigate("Home")} 
+        onPress={() => navigation.navigate("Home")}
         />
       </View>
     );
