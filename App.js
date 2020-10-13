@@ -14,19 +14,19 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
-          name="Home" 
+        <Stack.Screen
+          name="Home"
           component={HomeScreen}
           options={{ title: 'Home' }} />
-        <Stack.Screen 
-          name="Map" 
+        <Stack.Screen
+          name="Map"
           component={MapScreen} />
-        <Stack.Screen 
-          name="About" 
+        <Stack.Screen
+          name="About"
           component={AboutScreen} />
-          <Stack.Screen 
-          name="Contact" 
-          component={ContactScreen} />  
+          <Stack.Screen
+          name="Let's Get in Touch" 
+          component={ContactScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,12 +3,12 @@ import { Button, View, Text } from 'react-native';
 import 'react-native-gesture-handler';
 
 const HomeScreen = ( {navigation } ) => {
-  return (          
+  return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
       <Button
         title="Go to Map"
-        onPress={() => navigation.navigate('Map')}        
+        onPress={() => navigation.navigate('Map')}
       />
       <Button
         title="Go to About"
@@ -16,7 +16,7 @@ const HomeScreen = ( {navigation } ) => {
       />
       <Button
         title="Go to Contact"
-        onPress={() => navigation.navigate('Contact')}
+        onPress={() => navigation.navigate("Let's Get in Touch")}
       />
     </View>
   );
