@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, View, Text, Image, StyleSheet } from 'react-native';
+import { Button, View, Text, Image, ScrollView, StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
 
 const AboutScreen = ( {navigation} ) => {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} style={{width: 400, height: 200, marginTop:250}} />
+        <ScrollView>
+        <Image source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} style={{width: 420, height: 200, alignSelf: 'center'}} />
         
         <Text style={styles.titleText}>About Friends of Street Ends</Text>
         
@@ -33,11 +34,13 @@ const AboutScreen = ( {navigation} ) => {
         title='Go Back Home'
         onPress={() => navigation.navigate("Home")} 
         />
+        </ScrollView>
       </View>
     );
   }
 
   const styles = StyleSheet.create({
+
     baseText: {
       fontFamily: "Roboto",
       alignItems: 'center',
@@ -48,7 +51,7 @@ const AboutScreen = ( {navigation} ) => {
       fontSize: 24,
       fontWeight: "bold",
       fontFamily: "sans-serif-condensed",
-      alignItems: 'center',
+      alignSelf: 'center',
       color: '#80bbe2'
     }
   });
