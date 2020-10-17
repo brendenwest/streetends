@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
+import Footer from '../../GlobalComponents/Footer';
 
 const ContactScreen = ( {navigation} ) => {
     return (
@@ -18,6 +19,7 @@ const ContactScreen = ( {navigation} ) => {
             <Text style={styles.innerText}>Email: </Text>
             <Text style={styles.innerText}>Website: </Text>
           </View>
+          <Footer />
       </ScrollView>
     );
   };
