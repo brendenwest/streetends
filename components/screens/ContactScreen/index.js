@@ -1,20 +1,24 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import 'react-native-gesture-handler';
+import Header from '../../GlobalComponents/Header';
 
 const ContactScreen = ( {navigation} ) => {
     return (
-      <View style={styles.paragraph}>
-        <Text style={styles.title}>PlaceHolder TExt</Text>
-      <View style={styles.paragraph} />
-        <Text style={styles.baseText}>Let us know if you’re interested in volunteering and contributing to Friends of Street Ends Seattle. </Text>
-      <View style={styles.paragraph}/>
-        <Text style={styles.baseText}>We are constantly looking for new "friends" to help us steward the City's street ends and to help neighbors protect their shoreline access.</Text>
-      <View style={styles.paragraph}/>
-        <Text style={styles.innerText}>Phone:  </Text>
-        <Text style={styles.innerText}>Email: </Text>
-        <Text style={styles.innerText}>Website: </Text>
-      </View>
+      <ScrollView>
+        <Header />
+          <View style={styles.paragraph}>
+            <Text style={styles.title}>PlaceHolder TExt</Text>
+          <View style={styles.paragraph} />
+            <Text style={styles.baseText}>Let us know if you’re interested in volunteering and contributing to Friends of Street Ends Seattle. </Text>
+          <View style={styles.paragraph}/>
+            <Text style={styles.baseText}>We are constantly looking for new "friends" to help us steward the City's street ends and to help neighbors protect their shoreline access.</Text>
+          <View style={styles.paragraph}/>
+            <Text style={styles.innerText}>Phone:  </Text>
+            <Text style={styles.innerText}>Email: </Text>
+            <Text style={styles.innerText}>Website: </Text>
+          </View>
+      </ScrollView>
     );
   };
   const styles = StyleSheet.create({
