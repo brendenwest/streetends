@@ -6,6 +6,7 @@ import {
   } from 'react-native';
 import Header from '../../GlobalComponents/Header';
 import 'react-native-gesture-handler';
+import Footer from '../../GlobalComponents/Footer';
 
 const MapScreen = ( {navigation} ) => {
     return (
@@ -16,6 +17,7 @@ const MapScreen = ( {navigation} ) => {
         title='Go Back Home'
         onPress={() => navigation.navigate("Home")} 
         />
+        <Footer />
       </View>
     );
   };
