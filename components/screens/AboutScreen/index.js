@@ -3,6 +3,7 @@ import { Button, View, Text, Image, ScrollView, StyleSheet } from 'react-native'
 import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
+import { Icon } from 'react-native-elements'
 
 const AboutScreen = ( {navigation} ) => {
     return (
@@ -13,6 +14,12 @@ const AboutScreen = ( {navigation} ) => {
         <Image source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} style={{width: 420, height: 200, alignSelf: 'center'}} />
         
         <Text style={styles.titleText}>About Friends of Street Ends</Text>
+
+        <Icon
+          name='sc-telegram'
+          type='evilicon'
+          color='#517fa4'
+        />
         
         <Text style={styles.baseText}>
         {"\n"}
