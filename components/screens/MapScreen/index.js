@@ -4,39 +4,19 @@ import {
     Text,
     View,
   } from 'react-native';
-  import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
-
 import Header from '../../GlobalComponents/Header';
 import 'react-native-gesture-handler';
+import Footer from '../../GlobalComponents/Footer';
 
 const MapScreen = ( {navigation} ) => {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Header />
-        <View style={mapStyles.container}>
-                 <MapView
-
-                   style={mapStyles.map}
-                   initialRegion={{
-                     latitude: LATITUDE,
-                     longitude: LONGITUDE,
-                     latitudeDelta: LATITUDE_DELTA,
-                     longitudeDelta: LONGITUDE_DELTA,
-                   }}
-                   initialCamera={{
-                    center: {
-                      latitude: LATITUDE,
-                      longitude: LONGITUDE,
-                    },
-                    pitch: 0,
-                    heading: 0,
-                    altitude: 1000,
-                    zoom: 11,
-                  }}
-                 >
-                 </MapView>
-               </View>
-   
+        <Header />
+        <Text>Map Screen</Text>
+        <Button 
+        title='Go Back Home'
+        onPress={() => navigation.navigate("Home")} 
+        />
         <Footer />
       </View>
     );
