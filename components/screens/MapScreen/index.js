@@ -8,9 +8,9 @@ import {
     StyleSheet,
   } from 'react-native';
   import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
-import Header from '../../GlobalComponents/Header';
+
+
 import 'react-native-gesture-handler';
-import Footer from '../../GlobalComponents/Footer';
 
 const IOS = Platform.OS === 'ios';
 const ANDROID = Platform.OS === 'android';
@@ -53,6 +53,7 @@ const MapScreen = ( {navigation} ) => {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+
         <View style={mapStyles.container}>
                  <MapView
 
@@ -76,13 +77,7 @@ const MapScreen = ( {navigation} ) => {
                  >
                  </MapView>
                </View>
-        <Header />
-        <Text>Map Screen</Text>
-        <Button 
-        title='Go Back Home'
-        onPress={() => navigation.navigate("Home")} 
-        />
-        <Footer />
+
       </View>
     );
   };

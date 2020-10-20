@@ -1,12 +1,10 @@
 import React from 'react';
 import { Button, View, Text } from 'react-native';
 import 'react-native-gesture-handler';
-import Header from '../../GlobalComponents/Header';
 
 const HomeScreen = ( {navigation } ) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Header />
       <Text>Home Screen</Text>
       <Button
         title="Go to Map"

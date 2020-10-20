@@ -1,25 +1,13 @@
 import React from 'react';
-import { Button, View, Text, Image, ScrollView, StyleSheet } from 'react-native';
+import { Button, View, Text, Image, StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
-import Header from '../../GlobalComponents/Header';
-import Footer from '../../GlobalComponents/Footer';
-import { Icon } from 'react-native-elements'
 
 const AboutScreen = ( {navigation} ) => {
     return (
-      
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <ScrollView>
-        <Header />
-        <Image source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} style={{width: 420, height: 200, alignSelf: 'center'}} />
+        <Image source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} style={{width: 400, height: 200, marginTop:250}} />
         
         <Text style={styles.titleText}>About Friends of Street Ends</Text>
-
-        <Icon
-          name='sc-telegram'
-          type='evilicon'
-          color='#517fa4'
-        />
         
         <Text style={styles.baseText}>
         {"\n"}
@@ -41,14 +29,15 @@ const AboutScreen = ( {navigation} ) => {
         {"\n"}{"\n"}
         {`\u2022`} And for the past 20 years, FOSE provided support to neighbors and community groups as they have worked to open street ends for their own communities.
         </Text>
-        <Footer />
-        </ScrollView>
+        <Button 
+        title='Go Back Home'
+        onPress={() => navigation.navigate("Home")} 
+        />
       </View>
     );
   }
 
   const styles = StyleSheet.create({
-
     baseText: {
       fontFamily: "Roboto",
       alignItems: 'center',
@@ -57,10 +46,9 @@ const AboutScreen = ( {navigation} ) => {
     },
     titleText: {
       fontSize: 24,
-      padding:5,
       fontWeight: "bold",
       fontFamily: "sans-serif-condensed",
-      alignSelf: 'center',
+      alignItems: 'center',
       color: '#80bbe2'
     }
   });
