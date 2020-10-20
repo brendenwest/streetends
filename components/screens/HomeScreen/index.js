@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Image, ScrollView, View, Text } from 'react-native';
 import 'react-native-gesture-handler';
+import Header from '../../GlobalComponents/Header';
 
 import { Icon } from 'react-native-elements'
 
@@ -46,6 +47,7 @@ const HomeScreen = ( {navigation } ) => {
       </View>
     </ScrollView>
 
+    
   );
 }
 
