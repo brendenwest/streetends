@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Text, Image, ScrollView, StyleSheet } from 'react-native';
+import { Button, View, Text, Image, StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
@@ -50,14 +50,11 @@ const AboutScreen = ( {navigation} ) => {
           <Website/>
         <Footer />
         </ScrollView>
-
-
       </View>
     );
   }
 
   const styles = StyleSheet.create({
-
     baseText: {
       fontFamily: "Roboto",
       alignItems: 'center',
@@ -66,10 +63,9 @@ const AboutScreen = ( {navigation} ) => {
     },
     titleText: {
       fontSize: 24,
-      padding:5,
       fontWeight: "bold",
       fontFamily: "sans-serif-condensed",
-      alignSelf: 'center',
+      alignItems: 'center',
       color: '#80bbe2'
     },
     button:{
