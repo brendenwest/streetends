@@ -12,6 +12,7 @@ export default class MakeCall extends Component {
 
  render(){
         return(
+          <View style={styles.container}>
             <Button
               raised
               buttonStyle={styles.button}
@@ -19,11 +20,15 @@ export default class MakeCall extends Component {
               title= '(123)456-7890 '
               onPress={()=>{this.dialCall(1234567890)}}
             />
+            </View>
           )
   }
 }
 const styles = StyleSheet.create({
   button:{
     backgroundColor:'#5f8676'
+  },
+  container:{
+    padding:10,
   }
 });
