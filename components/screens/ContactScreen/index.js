@@ -3,22 +3,19 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
-
+import ContactForm from './contactForm.js';
+import HeroContactForm from './heroContact.js';
 const ContactScreen = ( {navigation} ) => {
     return (
       <ScrollView>
         <Header />
+        <HeroContactForm/>
           <View style={styles.paragraph}>
-            <Text style={styles.title}>PlaceHolder TExt</Text>
-          <View style={styles.paragraph} />
             <Text style={styles.baseText}>Let us know if you’re interested in volunteering and contributing to Friends of Street Ends Seattle. </Text>
           <View style={styles.paragraph}/>
             <Text style={styles.baseText}>We are constantly looking for new "friends" to help us steward the City's street ends and to help neighbors protect their shoreline access.</Text>
-          <View style={styles.paragraph}/>
-            <Text style={styles.innerText}>Phone:  </Text>
-            <Text style={styles.innerText}>Email: </Text>
-            <Text style={styles.innerText}>Website: </Text>
           </View>
+          <ContactForm />
           <Footer />
       </ScrollView>
     );
@@ -34,6 +31,7 @@ const ContactScreen = ( {navigation} ) => {
       letterSpacing: 2,
       fontFamily: 'Roboto',
       textAlign: 'center',
+      padding:10,
     },
     paragraph:{
       flex:0.35,
