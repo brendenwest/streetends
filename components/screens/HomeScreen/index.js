@@ -10,20 +10,13 @@ const HomeScreen = ( {navigation } ) => {
   return (
     <ScrollView>
       <View>  
-        <View style={{  alignItems: 'center'}}>        
+        <View style={styles.topSection}>        
           <Header />        
-          <Text>
-            Shoreline Access for Everyone
-          </Text>
+          <Text>Shoreline Access for Everyone</Text>
           <HomeImage />    
+        
         </View>  
-          <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            padding: 15
-          }}>
+          <View style={styles.iconRow}>
             <Icon
               name='map'
               size={140}
@@ -35,14 +28,7 @@ const HomeScreen = ( {navigation } ) => {
               onPress={() => navigation.navigate('Events')}
             />
           </View>
-          <View style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            padding: 15
-          }}>        
-              
+          <View style={styles.iconRow}>                
             <Icon
               name='email'
               size={140}
@@ -68,7 +54,7 @@ const HomeScreen = ( {navigation } ) => {
 
 const styles = StyleSheet.create({
 
-  baseText: {
+  topSection: {
     fontFamily: "Roboto",
     alignItems: 'center',
     marginLeft:10,
@@ -82,8 +68,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: '#80bbe2'
   },
-  button:{
-    backgroundColor:'#80bbe2'
+  iconRow:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    padding: 15
   }
 });
 
