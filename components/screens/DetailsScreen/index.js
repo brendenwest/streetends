@@ -27,20 +27,23 @@ const DetailsScreen = ( {navigation}, props ) => {
       }, []);
 
     return (
-
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <ScrollView>
-            <Header />
+        
+        <FlatList
+        ListHeaderComponent={
+        <>
+        
+          <Header />
             <Image source={{uri: "https://i.imgur.com/XJFeun1.jpg"}} style={{width: 420, height: 200, alignSelf: 'center'}} />
 
             <Text style={styles.titleText}>About This Street End</Text>
-
-            <FlatList
-                data={data}
-                keyExtractor={item => item.pmaid}
-                renderItem={renderItem}
-            />
-
+            
+        </>
+        }
+        data={data}
+        keyExtractor={item => item.pmaid}
+        renderItem={renderItem}
+        ListFooterComponent={
+            <>
             <Text style={styles.titleText}>
                 {"\n"}
                 {"\n"}
@@ -48,10 +51,15 @@ const DetailsScreen = ( {navigation}, props ) => {
                 {"\n"}{"\n"}
                 {/* Comment submission WIP */}
             </Text>
+          <Footer />
+          </>
+        }/>
 
-        <Footer />
-        </ScrollView>
-    </View>
+            
+
+            
+
+
     );
 }
 
