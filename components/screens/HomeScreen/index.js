@@ -1,54 +1,80 @@
 import React from 'react';
-import { Button, Image, ScrollView, View, Text } from 'react-native';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
+import HomeImage from './homeimage';
 
 import { Icon } from 'react-native-elements'
 
 const HomeScreen = ( {navigation } ) => {
   return (
     <ScrollView>
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Header />
-        <Text>Shoreline Access for Everyone</Text>
-        <Image 
-          source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} 
-          style=
-            {{padding: 40, 
-              width: 420, 
-              height: 200, 
-              alignSelf: 'center'}} 
-        />
-          
-        <Icon
-            name='map'
-            size={150}
-            onPress={() => navigation.navigate('Map')}
-        />      
+      <View>  
+        <View style={styles.topSection}>        
+          <Header />        
+          <Text>Shoreline Access for Everyone</Text>
+          <HomeImage />    
         
-        <Icon
-            name='event'
-            size={150}
-            onPress={() => navigation.navigate('Events')}
-        />    
-        
-        <Icon
-            name='email'
-            size={150}
-            onPress={() => navigation.navigate("Let's Get in Touch")}
-        />            
+        </View>  
+          <View style={styles.iconRow}>
+            <Icon
+              name='map'
+              size={140}
+              onPress={() => navigation.navigate('Map')}
+            />              
+            <Icon
+              name='event'
+              size={140}
+              onPress={() => navigation.navigate('Events')}
+            />
+          </View>
+          <View style={styles.iconRow}>                
+            <Icon
+              name='email'
+              size={140}
+              onPress={() => navigation.navigate("Let's Get in Touch")}    
+            />            
+    
 
-        <Icon
-            name='info'
-            size={150}
-            onPress={() => navigation.navigate('About')}
-        />                    
-   
+            <Icon
+              name='info'
+              size={140}
+              onPress={() => navigation.navigate('About')}
+            />                    
+  
       </View>
+
+   
+    </View>
     </ScrollView>
 
     
   );
 }
+
+const styles = StyleSheet.create({
+
+  topSection: {
+    fontFamily: "Roboto",
+    alignItems: 'center',
+    marginLeft:10,
+    marginRight:10
+  },
+  titleText: {
+    fontSize: 24,
+    padding:5,
+    fontWeight: "bold",
+    fontFamily: "sans-serif-condensed",
+    alignSelf: 'center',
+    color: '#80bbe2'
+  },
+  iconRow:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    padding: 15
+  }
+});
 
 export default HomeScreen;
