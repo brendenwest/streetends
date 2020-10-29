@@ -34,13 +34,16 @@ const HomeScreen = ( {navigation } ) => {
               size={140}
               onPress={() => navigation.navigate("Let's Get in Touch")}    
             />            
-    
-
             <Icon
               name='info'
               size={140}
               onPress={() => navigation.navigate('About')}
-            />                    
+            />    
+            <Icon
+            name='park'
+            size={150}
+            onPress={() => navigation.navigate('Details')}
+            />                
   
       </View>
 
