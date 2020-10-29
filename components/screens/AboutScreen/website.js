@@ -5,7 +5,7 @@ export default class Website extends Component {
 
  render(){
         return(
-          <View>
+          <View style={styles.container}>
             <Button
               raised
               buttonStyle={styles.button}
@@ -22,5 +22,8 @@ export default class Website extends Component {
 const styles = StyleSheet.create({
   button:{
     backgroundColor:'#5f8676'
+  },
+  container:{
+    padding:10,
   }
 });
