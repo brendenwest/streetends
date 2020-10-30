@@ -21,6 +21,7 @@
     "react-native-gesture-handler": "^1.8.0",
     "react-native-hero": "^0.3.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.3",
+    "react-native-maps": "^0.27.1",
     "react-native-phone-call": "^1.0.9",
     "react-native-reanimated": "^1.13.1",
     "react-native-safe-area-context": "^3.1.8",
@@ -32,7 +33,7 @@
     "@babel/runtime": "7.11.2",
     "@react-native-community/eslint-config": "1.1.0",
     "babel-jest": "25.5.1",
-     "jest": "25.5.4",
+    "jest": "25.5.4",
     "metro-react-native-babel-preset": "0.59.0",
     "react-test-renderer": "16.13.1"
   },
