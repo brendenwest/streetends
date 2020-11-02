@@ -5,50 +5,55 @@ import Header from '../../GlobalComponents/Header';
 import HomeImage from './homeimage';
 
 import { Icon } from 'react-native-elements'
+import { greaterThan } from 'react-native-reanimated';
 
 const HomeScreen = ( {navigation } ) => {
   return (
     <ScrollView>
-      <View>  
-        <View style={styles.topSection}>        
-          <Header />        
-          <Text>Shoreline Access for Everyone</Text>
-          <HomeImage />    
-        
-        </View>  
-          <View style={styles.iconRow}>
-            <Icon
-              name='map'
-              size={140}
-              onPress={() => navigation.navigate('Map')}
-            />              
-            <Icon
-              name='event'
-              size={140}
-              onPress={() => navigation.navigate('Events')}
-            />
-          </View>
-          <View style={styles.iconRow}>                
-            <Icon
-              name='email'
-              size={140}
-              onPress={() => navigation.navigate("Let's Get in Touch")}    
-            />            
-            <Icon
-              name='info'
-              size={140}
-              onPress={() => navigation.navigate('About')}
-            />    
-            <Icon
-            name='park'
-            size={150}
-            onPress={() => navigation.navigate('Details')}
-            />                
-  
-      </View>
 
-   
+        <View>  
+            <View style={styles.topSection}>        
+              <Header />        
+              <Text>Shoreline Access for Everyone</Text>
+              <HomeImage />    
+            </View>  
+
+            <View style={styles.iconRow}>
+              <Icon
+                name='map'
+                size={120}
+                onPress={() => navigation.navigate('Map')}
+              />              
+              <Icon
+                name='event'
+                size={120}
+                onPress={() => navigation.navigate('Events')}
+              />
+            </View>
+
+            <View style={styles.iconRow}>                
+              <Icon
+                name='email'
+                size={120}
+                onPress={() => navigation.navigate("Let's Get in Touch")}    
+              />            
+              <Icon
+                name='info'
+                size={120}
+                onPress={() => navigation.navigate('About')}
+              />                
+            </View>
+
+            <View style={styles.testing}>
+              <Icon 
+                name='park'
+                size={20}
+                onPress={() => navigation.navigate('Details')}
+                />    
+                <Text>(Details Screen Testing)</Text>
+            </View>
     </View>
+
     </ScrollView>
 
     
@@ -77,6 +82,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     padding: 15
+  },
+  testing:{
+    alignItems: 'center',
+    marginBottom: 15
   }
 });
 

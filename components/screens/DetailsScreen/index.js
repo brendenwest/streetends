@@ -31,17 +31,16 @@ const DetailsScreen = ( {navigation}, props ) => {
         <FlatList
         ListHeaderComponent={
         <>
-        
           <Header />
             <Image source={{uri: "https://i.imgur.com/XJFeun1.jpg"}} style={{width: 420, height: 200, alignSelf: 'center'}} />
-
             <Text style={styles.titleText}>About This Street End</Text>
-            
         </>
         }
+
         data={data}
         keyExtractor={item => item.pmaid}
         renderItem={renderItem}
+
         ListFooterComponent={
             <>
             <Text style={styles.titleText}>
@@ -54,15 +53,8 @@ const DetailsScreen = ( {navigation}, props ) => {
           <Footer />
           </>
         }/>
-
-            
-
-            
-
-
     );
 }
-
   const styles = StyleSheet.create({
     baseText: {
       fontFamily: "Roboto",
