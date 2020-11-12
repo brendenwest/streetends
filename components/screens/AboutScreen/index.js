@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, View, Text, Image, ScrollView, StyleSheet } from 'react-native';
+import React, {useEffect,useState} from "react";
+import { Button, View, Text, Image, ScrollView, StyleSheet,FlatList,TouchableHighlight} from 'react-native';
 import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
@@ -8,8 +8,25 @@ import MakeCall from './phone.js'
 import SendEmail from './email.js'
 import Website from './website.js'
 
+const renderItem = ({ item }) => (
+  <TouchableHighlight>
+      <View style={styles.item} >
+        <Text style={styles.title}>{item.name} {item.title} {item.phone} {item.email}</Text>
+      </View>
+  </TouchableHighlight>
+);
+
 const AboutScreen = ( {navigation} ) => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+      fetch('https://brisksoft.herokuapp.com/api/streetends/contacts')
+        .then((response) => response.json())
+        .then((json) => setData(json))
+        .catch((error) => console.error(error));
+    }, []);
     return (
+
 
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <ScrollView>
@@ -48,6 +65,14 @@ const AboutScreen = ( {navigation} ) => {
           <MakeCall/>
           <SendEmail/>
           <Website/>
+          <View>
+              <Text>Seattle Parks Contacts</Text>
+                    <FlatList
+                      data={data}
+                      keyExtractor={item => item.pmaid}
+                      renderItem={renderItem}
+                    />
+        </View>
         <Footer />
         </ScrollView>
 
