@@ -11,7 +11,7 @@ import Website from './website.js'
 const renderItem = ({ item }) => (
   <TouchableHighlight>
       <View style={styles.item} >
-        <Text style={styles.title}>{item.name} {item.title} {item.phone} {item.email}</Text>
+        <Text style={styles.title}>{item.name} {item.title} {"\n"}{item.phone} {"\n"}{item.email}</Text>
       </View>
   </TouchableHighlight>
 );
@@ -66,7 +66,7 @@ const AboutScreen = ( {navigation} ) => {
           <SendEmail/>
           <Website/>
           <View>
-              <Text>Seattle Parks Contacts</Text>
+              <Text style={styles.titleText}>Seattle Parks Contacts</Text>
                     <FlatList
                       data={data}
                       keyExtractor={item => item.pmaid}
@@ -95,11 +95,22 @@ const AboutScreen = ( {navigation} ) => {
       fontWeight: "bold",
       fontFamily: "sans-serif-condensed",
       alignSelf: 'center',
-      color: '#80bbe2'
+      color: '#000000'
     },
     button:{
       backgroundColor:'#80bbe2'
-    }
+    },
+    item: {
+    backgroundColor: '#C0C0C0',
+    padding: 20,
+    marginVertical: 5,
+    marginHorizontal: 10,
+    opacity: 0.6,
+    fontWeight: "bold",
+  },
+   title:{
+     fontSize: 18
+   }
   });
 
   export default AboutScreen;
