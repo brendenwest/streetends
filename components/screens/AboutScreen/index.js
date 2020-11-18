@@ -3,10 +3,10 @@ import { Button, View, Text, Image, ScrollView, StyleSheet,FlatList,TouchableHig
 import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
-import { Icon } from 'react-native-elements'
-import MakeCall from './phone.js'
-import SendEmail from './email.js'
-import Website from './website.js'
+import { Icon } from 'react-native-elements';
+import MakeCall from './phone.js';
+import SendEmail from './email.js';
+import Website from './website.js';
 
 const renderItem = ({ item }) => (
   <TouchableHighlight>
@@ -65,7 +65,7 @@ const AboutScreen = ( {navigation} ) => {
           <MakeCall/>
           <SendEmail/>
           <Website/>
-          <View>
+          <View style={styles.container}>
               <Text style={styles.titleText}>Seattle Parks Contacts</Text>
                     <FlatList
                       data={data}
@@ -110,6 +110,10 @@ const AboutScreen = ( {navigation} ) => {
   },
    title:{
      fontSize: 18
+   },
+   container: {
+     padding: 10,
+     marginRight:10
    }
   });
 
