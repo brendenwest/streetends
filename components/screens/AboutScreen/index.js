@@ -4,8 +4,6 @@ import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
 import { Icon } from 'react-native-elements';
-import MakeCall from './phone.js';
-import SendEmail from './email.js';
 import Website from './website.js';
 
 const renderItem = ({ item }) => (
@@ -62,8 +60,6 @@ const AboutScreen = ( {navigation} ) => {
         {`\u2022`} And for the past 20 years, FOSE provided support to neighbors and community groups as they have worked to open street ends for their own communities.
         </Text>
         <View/>
-          <MakeCall/>
-          <SendEmail/>
           <Website/>
           <View style={styles.container}>
               <Text style={styles.titleText}>Seattle Parks Contacts</Text>
