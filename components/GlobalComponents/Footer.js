@@ -2,10 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
 
-const Footer = () => {
+const Footer = ( {navigation}) => {
     return (
       <View style={styles.footerView}>
-        <Text style={styles.headerText}>FRIENDS OF STREET ENDS{"\n"} — {"\n"}enjoy public access to our waterfront{"\n"}{"\n"}CONTACT</Text>
+        <Text
+          onPress={() => navigation.navigate('Contact')} 
+          style={styles.headerText}>FRIENDS OF STREET ENDS{"\n"} — {"\n"}enjoy public access to our waterfront{"\n"}{"\n"}CONTACT</Text>
       </View>
     );
   }

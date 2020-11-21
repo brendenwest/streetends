@@ -10,34 +10,38 @@ import MapScreen from './components/screens/MapScreen';
 import EventScreen from './components/screens/EventScreen';
 import DetailsScreen from './components/screens/DetailsScreen';
 
+import { StoreProvider } from './hooks/useStore';
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Home' }} />
-        <Stack.Screen
-          name="Map"
-          component={MapScreen} />
-        <Stack.Screen
-          name="About"
-          component={AboutScreen} />
-        <Stack.Screen
-          name="Events"
-          component={EventScreen} />          
-        <Stack.Screen
-          name="Let's Get in Touch" 
-          component={ContactScreen} />
-        <Stack.Screen
-          name="Details" 
-          component={DetailsScreen} />
+    <StoreProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
 
-      </Stack.Navigator>
-    </NavigationContainer>
+                  <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'Home' }} />
+          <Stack.Screen
+            name="Map"
+            component={MapScreen} />
+          <Stack.Screen
+            name="About"
+            component={AboutScreen} />
+          <Stack.Screen
+            name="Events"
+            component={EventScreen} />          
+          <Stack.Screen
+            name="Let's Get in Touch" 
+            component={ContactScreen} />
+          <Stack.Screen
+            name="Details" 
+            component={DetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </StoreProvider>
   );
 }
 
