@@ -72,7 +72,7 @@ const MapScreen = ( {navigation} ) => {
           {points.map((marker, index) => (
             <Marker
               key={index}
-              coordinate={marker.latlng}
+              coordinate={{'longitude': marker.geometry.coordinates[0], 'latitude': marker.geometry.coordinates[1]}}
               title={marker.title}
               description={marker.description}
             />
