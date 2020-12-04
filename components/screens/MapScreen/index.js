@@ -36,6 +36,17 @@ const mapStyles = StyleSheet.create({
 });
 
 const MapScreen = ( {navigation} ) => {
+
+  const [points, setPoints] = useState([]);
+
+  useEffect(() => {
+    fetch('http://fosetest.org/Street_Ends__Shoreline_.geojson')
+      .then((response) => response.json())
+      .then((json) => {setPoints(json.features); console.log(json)})
+      .catch((error) => console.error(error))
+      .finally(() => {setLoading(false);
+        console.log(points)});
+  }, []);
     return (
       <View style={mapStyles.container}>
         <MapView
@@ -58,6 +69,14 @@ const MapScreen = ( {navigation} ) => {
             zoom: 11,
           }}
           >
+          {this.state.markers.map((marker, index) => (
+            <Marker
+              key={index}
+              coordinate={marker.latlng}
+              title={marker.title}
+              description={marker.description}
+            />
+          ))}
         </MapView>
       </View>
     );
