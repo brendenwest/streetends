@@ -7,7 +7,7 @@ import {
     Text,
     View,
   } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, Marker } from 'react-native-maps';
 import Header from '../../GlobalComponents/Header';
 import 'react-native-gesture-handler';
 import Footer from '../../GlobalComponents/Footer';
@@ -69,7 +69,7 @@ const MapScreen = ( {navigation} ) => {
             zoom: 11,
           }}
           >
-          {this.state.markers.map((marker, index) => (
+          {points.map((marker, index) => (
             <Marker
               key={index}
               coordinate={marker.latlng}
