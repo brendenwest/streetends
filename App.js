@@ -8,7 +8,8 @@ import ContactScreen from './components/screens/ContactScreen';
 import HomeScreen from './components/screens/HomeScreen';
 import MapScreen from './components/screens/MapScreen';
 import EventScreen from './components/screens/EventScreen';
-import DetailsScreen from './components/screens/DetailsScreen';
+import ListScreen from './components/screens/ListScreen'
+import LocationDetailsScreen from './components/screens/LocationDetailsScreen';
 
 import { StoreProvider } from './hooks/useStore';
 
@@ -38,7 +39,10 @@ const App = () => {
             component={ContactScreen} />
           <Stack.Screen
             name="Details" 
-            component={DetailsScreen} />
+            component={LocationDetailsScreen} />
+          <Stack.Screen
+            name="List" 
+            component={ListScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </StoreProvider>

@@ -46,6 +46,12 @@ const HomeScreen = ( {navigation } ) => {
               onPress={() => navigation.navigate('About')}
             />                    
   
+            <Icon
+              name='announcement'
+              size={140}
+              onPress={() => navigation.navigate('List')}
+            />   
+
       </View>
 
    
