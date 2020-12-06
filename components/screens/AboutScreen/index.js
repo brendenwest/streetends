@@ -83,8 +83,8 @@ const AboutScreen = ( {navigation} ) => {
               <Text style={styles.titleText}>Seattle Parks Contacts</Text>
                     <FlatList
                       data={data}
-                      keyExtractor={data, index => {
-                        return data.id;
+                      keyExtractor={(data, index) => {
+                        return String(index);
                       }}
                       renderItem={renderItem}
                     />
