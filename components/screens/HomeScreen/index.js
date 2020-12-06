@@ -2,13 +2,11 @@ import React from 'react';
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
 import Header from '../../GlobalComponents/Header';
 import HomeImage from './homeimage';
-import useStore from '../../../hooks/useStore';
+
 
 import {Icon} from 'react-native-elements';
 
 const HomeScreen = ({navigation}) => {
-  const store = useStore();
-
   return (
     <ScrollView>
       <View>
@@ -20,32 +18,32 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.iconRow}>
           <Icon
             name="map"
-            size={140}
+            size={120}
             onPress={() => navigation.navigate('Map')}
           />
           <Icon
-            name="event"
-            size={140}
-            onPress={() => navigation.navigate('Events')}
+            name="assignment"
+            size={120}
+            onPress={() => navigation.navigate('List')}
+          />
+        </View>
+        <View style={styles.iconRow}>
+          <Icon
+            name="info"
+            size={120}
+            onPress={() => navigation.navigate('About')}
           />
         </View>
         <View style={styles.iconRow}>
           <Icon
             name="email"
-            size={140}
+            size={120}
             onPress={() => navigation.navigate("Let's Get in Touch")}
           />
-
           <Icon
-            name="info"
-            size={140}
-            onPress={() => navigation.navigate('About')}
-          />
-
-          <Icon
-            name="announcement"
-            size={140}
-            onPress={() => navigation.navigate('List')}
+            name="event"
+            size={120}
+            onPress={() => navigation.navigate('Events')}
           />
         </View>
       </View>
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   titleText: {
-    fontSize: 24,
+    fontSize: 36,
     padding: 5,
     fontWeight: 'bold',
     fontFamily: 'sans-serif-condensed',
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: 15,
+    
   },
 });
 

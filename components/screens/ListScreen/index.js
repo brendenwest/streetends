@@ -14,7 +14,7 @@ import useStore from '../../../hooks/useStore';
 
 const Item = ({id, intersection, onPress}) => (
   <TouchableOpacity style={styles.item} onPress={() => onPress(id)}>
-    <Text style={styles.title}>{intersection}</Text>
+    <Text style={styles.listLink}>{intersection}</Text>
   </TouchableOpacity>
 );
 
@@ -25,9 +25,7 @@ const ListScreen = ({navigation}) => {
     navigation.navigate('Details', {id});
   };
 
-  const renderItem = ({item}) => 
-    <Item onPress={onPressItem} {...item} />;
-  
+  const renderItem = ({item}) => <Item onPress={onPressItem} {...item} />;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -35,6 +33,7 @@ const ListScreen = ({navigation}) => {
         data={store.locations}
         renderItem={renderItem}
         keyExtractor={(item) => String(item.id)}
+        ListHeaderComponent={<Header />}
       />
     </SafeAreaView>
   );
@@ -46,19 +45,20 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#36d1f7',
     marginHorizontal: 16,
     marginVertical: 8,
-    padding: 20,
+    padding: 5,
   },
   title: {
     fontSize: 32,
   },
   listLink: {
-    color: 'red',
+    color: 'black',
     fontFamily: 'Roboto',
     margin: 10,
     textAlign: 'left',
+    fontSize: 14,
   },
 });
 

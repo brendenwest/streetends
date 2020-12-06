@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import Footer from '../../GlobalComponents/Footer';
 import Header from '../../GlobalComponents/Header';
 import useStore from '../../../hooks/useStore';
@@ -12,13 +12,39 @@ const LocationDetailsScreen = ({navigation, route}) => {
   console.log(location);
 
   return (
-    <SafeAreaView
-      style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={styles.container}>
       <Header />
-      <Text>{location.intersection}</Text>
+      <Text style={styles.intersection}>{location.intersection}</Text>
+      <View>
+        <Image
+          style={styles.photo}
+          source={{
+            uri: location.photo,
+          }}
+        />
+        <Text style={styles.intersection}>{location.description}</Text>
+      </View>
+
       <Footer />
-    </SafeAreaView>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  photo: {
+    width: 350,
+    height: 200,
+    alignSelf: 'center',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  intersection: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default LocationDetailsScreen;

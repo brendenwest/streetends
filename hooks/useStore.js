@@ -23,6 +23,8 @@ const useStore = () => {
               longitude: feature.geometry.coordinates[1],
               id: feature.properties.OBJECTID,
               intersection: feature.properties.INTERSECTION,
+              photo: feature.properties.SHORELINE_IMAGE,
+              description: feature.properties.UNITDESC,
             };
           });
 

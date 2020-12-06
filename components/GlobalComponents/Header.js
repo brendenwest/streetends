@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import 'react-native-gesture-handler';
 
 const Header = () => {
   return (

@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
 import ContactForm from './contactForm.js';

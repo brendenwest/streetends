@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 import Header from '../../GlobalComponents/Header';
-import 'react-native-gesture-handler';
 import Footer from '../../GlobalComponents/Footer';
 
 const EventScreen = ({navigation}) => {

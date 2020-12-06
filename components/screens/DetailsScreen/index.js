@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {
-  Button,
   View,
   Text,
   Image,
-  ScrollView,
   StyleSheet,
   FlatList,
   TouchableHighlight,
 } from 'react-native';
-import 'react-native-gesture-handler';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
 

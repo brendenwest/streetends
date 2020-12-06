@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import MapView, {PROVIDER_GOOGLE, PROVIDER_DEFAULT} from 'react-native-maps';
 import Header from '../../GlobalComponents/Header';
-import 'react-native-gesture-handler';
 import Footer from '../../GlobalComponents/Footer';
 
 const IOS = Platform.OS === 'ios';

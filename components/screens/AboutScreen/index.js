@@ -1,10 +1,9 @@
-import React from 'react';
-import {Button, View, Text, Image, ScrollView, StyleSheet} from 'react-native';
-import 'react-native-gesture-handler';
-import Header from '../../GlobalComponents/Header';
-import Footer from '../../GlobalComponents/Footer';
 import {Icon} from 'react-native-elements';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import Footer from '../../GlobalComponents/Footer';
+import Header from '../../GlobalComponents/Header';
 import MakeCall from './phone.js';
+import React from 'react';
 import SendEmail from './email.js';
 import Website from './website.js';
 
