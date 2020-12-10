@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AboutScreen from './components/screens/AboutScreen';
 import ContactScreen from './components/screens/ContactScreen';
 import HomeScreen from './components/screens/HomeScreen';
-import MapScreen from './components/screens/MapScreen';
+//import MapScreen from './components/screens/MapScreen';
 import EventScreen from './components/screens/EventScreen';
 import DetailsScreen from './components/screens/DetailsScreen';
 
@@ -20,9 +20,9 @@ const App = () => {
           name="Home"
           component={HomeScreen}
           options={{ title: 'Home' }} />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Map"
-          component={MapScreen} />
+          component={MapScreen} /> */}
         <Stack.Screen
           name="About"
           component={AboutScreen} />
