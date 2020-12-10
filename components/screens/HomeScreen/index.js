@@ -10,15 +10,27 @@ import { greaterThan } from 'react-native-reanimated';
 const HomeScreen = ( {navigation } ) => {
   return (
     <ScrollView>
-
         <View>  
             <View style={styles.topSection}>        
               <Header />        
-              <Text>Shoreline Access for Everyone</Text>
-              <HomeImage />    
+              <Text style={styles.titleText}>Shoreline Access for Everyone</Text>
+              <HomeImage />  
+
+              <Text style={styles.titleText}>It started with a simple, powerful idea</Text>
+              <Text style={styles.newParagraph}>
+              Why shouldn’t everyone should have access to Seattle's waterfronts. As our region grows, shoreline street ends 
+              provide places of respite and should be protected. Since 1997, the neighbors and community leaders of Friends 
+              of Street Ends have worked to open and enhance Seattle's shoreline street ends for public access.
+              </Text>
+              <Text style={styles.newParagraph}>
+              The street ends provide a place of contemplation, a moment when you’re on a walk or run to stop to look out 
+              at the lake and catch your breath, a bench for a conversation, a way to run into your neighbors and enjoy the 
+              beauty of our proximity to water and mountain views.
+              </Text>  
             </View>  
 
-            <View style={styles.iconRow}>
+
+            {/* <View style={styles.iconRow}>
               <Icon
                 name='map'
                 size={120}
@@ -51,7 +63,7 @@ const HomeScreen = ( {navigation } ) => {
                 onPress={() => navigation.navigate('Details')}
                 />    
                 <Text>(Details Screen Testing)</Text>
-            </View>
+            </View> */}
     </View>
 
     </ScrollView>
@@ -62,6 +74,13 @@ const HomeScreen = ( {navigation } ) => {
 
 const styles = StyleSheet.create({
 
+  newParagraph:{
+    fontFamily: "Roboto",
+    alignItems: 'center',
+    marginLeft:10,
+    marginRight:10,
+    paddingBottom: 15
+  },
   topSection: {
     fontFamily: "Roboto",
     alignItems: 'center',

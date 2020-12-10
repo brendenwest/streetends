@@ -47,13 +47,6 @@ const AboutScreen = ( {navigation} ) => {
         <Image source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} style={{width: 420, height: 200, alignSelf: 'center'}} />
 
         <Text style={styles.titleText}>About Friends of Street Ends</Text>
-
-        <Icon
-          name='sc-telegram'
-          type='evilicon'
-          color='#517fa4'
-        />
-
         <Text style={styles.baseTextTitle}>IT ALL STARTED WHEN…</Text>
         <Text style={styles.newParagraph}> For over twenty years,Friends of Street Ends (FOSE) has worked to improve public shoreline access in the City of Seattle.</Text>
         <Text style={styles.newParagraph}>The City is home to 148 street ends, or right-of-way green spaces, that are open to the public.
@@ -118,7 +111,7 @@ const AboutScreen = ( {navigation} ) => {
       fontWeight: "bold",
       fontFamily: "sans-serif-condensed",
       alignSelf: 'center',
-      color: '#000000'
+      color: '#80bbe2'
     },
     button:{
       backgroundColor:'#80bbe2'
