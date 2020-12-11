@@ -1,23 +1,20 @@
 import React, {Component} from 'react';
-import {
-  Linking,
-  Platform,
-  TouchableOpacity,
-  Text,
-  View,
-  StyleSheet,
-} from 'react-native';
+import {Linking, Text, TouchableOpacity, StyleSheet, View} from 'react-native';
 import {Icon, Button} from 'react-native-elements';
-export default class Website extends Component {
+export default class SendEmail extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Button
           raised
           buttonStyle={styles.button}
-          icon={{name: 'info'}}
-          title="Go to our website"
-          onPress={() => Linking.openURL('https://www.streetends.org')}
+          icon={{name: 'email'}}
+          title=" Email Us"
+          onPress={() =>
+            Linking.openURL(
+              'mailto:support@example.com?subject=SendMail&body=Description',
+            )
+          }
         />
       </View>
     );
@@ -31,9 +28,4 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
-  container:{
-    padding:10,
-    marginRight:40,
-    marginLeft:30
-  }
 });

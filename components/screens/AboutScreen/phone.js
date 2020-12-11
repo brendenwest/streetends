@@ -4,26 +4,37 @@ import {
   Platform,
   TouchableOpacity,
   Text,
-  View,
   StyleSheet,
+  View,
 } from 'react-native';
 import {Icon, Button} from 'react-native-elements';
-export default class Website extends Component {
+export default class MakeCall extends Component {
+  dialCall = (number) => {
+    let phoneNumber = '';
+    if (Platform.OS === 'android') {
+      phoneNumber = `tel:${number}`;
+    } else {
+      phoneNumber = `telprompt:${number}`;
+    }
+    Linking.openURL(phoneNumber);
+  };
+
   render() {
     return (
       <View style={styles.container}>
         <Button
           raised
           buttonStyle={styles.button}
-          icon={{name: 'info'}}
-          title="Go to our website"
-          onPress={() => Linking.openURL('https://www.streetends.org')}
+          icon={{name: 'phone'}}
+          title="(123)456-7890 "
+          onPress={() => {
+            this.dialCall(1234567890);
+          }}
         />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#5f8676',
@@ -31,9 +42,4 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
-  container:{
-    padding:10,
-    marginRight:40,
-    marginLeft:30
-  }
 });

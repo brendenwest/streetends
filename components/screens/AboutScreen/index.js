@@ -44,7 +44,10 @@ const AboutScreen = ( {navigation} ) => {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <ScrollView>
         <Header />
-        <Image source={{uri: "https://i.imgur.com/F3aMEfG.jpg"}} style={{width: 420, height: 200, alignSelf: 'center'}} />
+        <Image
+          source={{uri: 'https://i.imgur.com/F3aMEfG.jpg'}}
+          style={{width: 420, height: 200, alignSelf: 'center'}}
+        />
 
         <Text style={styles.titleText}>About Friends of Street Ends</Text>
         <Text style={styles.baseTextTitle}>IT ALL STARTED WHEN…</Text>
@@ -86,7 +89,7 @@ const AboutScreen = ( {navigation} ) => {
 
         </ScrollView>
 
-      </View> ///jhkjhkh
+      </View>
     );
   }
 
@@ -138,4 +141,4 @@ const AboutScreen = ( {navigation} ) => {
 
   });
 
-  export default AboutScreen;
+export default AboutScreen;

@@ -1,14 +1,17 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { createStackNavigator } from '@react-navigation/stack';
 import AboutScreen from './components/screens/AboutScreen';
 import ContactScreen from './components/screens/ContactScreen';
 import HomeScreen from './components/screens/HomeScreen';
 import MapScreen from './components/screens/MapScreen';
 import EventScreen from './components/screens/EventScreen';
+import ListScreen from './components/screens/ListScreen';
+import LocationDetailsScreen from './components/screens/LocationDetailsScreen';
+import {StoreProvider} from './hooks/useStore';
 
 const Tab = createBottomTabNavigator();
 
@@ -70,60 +73,36 @@ function MyTabs() {
           ),
         }}
       />
+      <Tab.Screen
+        name="List"
+        component={ListScreen}
+        options={{
+          tabBarLabel: 'List',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
+  <StoreProvider>
     <NavigationContainer>
-      <MyTabs />
+      {/* <MyTabs /> */}
+        <Stack.Navigator>
+         <Stack.Screen
+          name="MyTabs"
+          component={MyTabs}
+          options={{ title: 'Friends of Street Ends' }} />
+        <Stack.Screen
+          name="Details" 
+          component={LocationDetailsScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
+    </StoreProvider>
   );
-}
-
-
-// import React from 'react';
-// import 'react-native-gesture-handler';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
-
-// import AboutScreen from './components/screens/AboutScreen';
-// import ContactScreen from './components/screens/ContactScreen';
-// import HomeScreen from './components/screens/HomeScreen';
-// //import MapScreen from './components/screens/MapScreen';
-// import EventScreen from './components/screens/EventScreen';
-// import DetailsScreen from './components/screens/DetailsScreen';
-
-// const Stack = createStackNavigator();
-
-// const App = () => {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen
-//           name="Home"
-//           component={HomeScreen}
-//           options={{ title: 'Home' }} />
-//         {/* <Stack.Screen
-//           name="Map"
-//           component={MapScreen} /> */}
-//         <Stack.Screen
-//           name="About"
-//           component={AboutScreen} />
-//         <Stack.Screen
-//           name="Events"
-//           component={EventScreen} />          
-//         <Stack.Screen
-//           name="Let's Get in Touch" 
-//           component={ContactScreen} />
-//         <Stack.Screen
-//           name="Details" 
-//           component={DetailsScreen} />
-
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-
-// export default App;
+};

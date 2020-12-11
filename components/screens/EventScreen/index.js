@@ -1,6 +1,4 @@
-//import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react'
-//import styles from './styles';
 import { 
   StyleSheet,
   Text, 
@@ -21,7 +19,6 @@ const eventsURL = "https://brisksoft.herokuapp.com/api/streetends/schedule";
 
 const EventScreen = () => {
   const [isLoading, setLoading] = useState(true);
-  //const [data, setData] = useState([]);
   const [events, setEvents] = useState([]);
   const [meetings, setMeetings] = useState([]);     
 
