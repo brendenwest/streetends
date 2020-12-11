@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { createStackNavigator } from '@react-navigation/stack';
 import AboutScreen from './components/screens/AboutScreen';
 import ContactScreen from './components/screens/ContactScreen';
 import HomeScreen from './components/screens/HomeScreen';
@@ -86,12 +86,34 @@ function MyTabs() {
     </Tab.Navigator>
   );
 }
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
   <StoreProvider>
     <NavigationContainer>
       <MyTabs />
+             <Stack.Navigator>
+         <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Home' }} />
+        <Stack.Screen
+          name="Map"
+          component={MapScreen} />
+        <Stack.Screen
+          name="About"
+          component={AboutScreen} />
+        <Stack.Screen
+          name="Events"
+          component={EventScreen} />          
+        <Stack.Screen
+          name="Let's Get in Touch" 
+          component={ContactScreen} />
+        <Stack.Screen
+          name="Details" 
+          component={LocationDetailsScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
     </StoreProvider>
   );
