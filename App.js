@@ -92,24 +92,12 @@ export default function App() {
   return (
   <StoreProvider>
     <NavigationContainer>
-      <MyTabs />
-             <Stack.Navigator>
+      {/* <MyTabs /> */}
+        <Stack.Navigator>
          <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Home' }} />
-        <Stack.Screen
-          name="Map"
-          component={MapScreen} />
-        <Stack.Screen
-          name="About"
-          component={AboutScreen} />
-        <Stack.Screen
-          name="Events"
-          component={EventScreen} />          
-        <Stack.Screen
-          name="Let's Get in Touch" 
-          component={ContactScreen} />
+          name="MyTabs"
+          component={MyTabs}
+          options={{ title: 'Friends of Street Ends' }} />
         <Stack.Screen
           name="Details" 
           component={LocationDetailsScreen} />
