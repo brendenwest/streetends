@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {
-  Platform,
-  Dimensions,
-  Button,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import MapView, {PROVIDER_GOOGLE, PROVIDER_DEFAULT} from 'react-native-maps';
+    Platform,
+    Dimensions,
+    Button,
+    StyleSheet,
+    Text,
+    View,
+  } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, Marker } from 'react-native-maps';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
 
@@ -34,31 +34,49 @@ const mapStyles = StyleSheet.create({
   },
 });
 
-const MapScreen = ({navigation}) => {
-  return (
-    <View style={mapStyles.container}>
-      <MapView
-        provider={PROVIDER_GOOGLE}
-        style={mapStyles.map}
-        initialRegion={{
-          latitude: LATITUDE,
-          longitude: LONGITUDE,
-          latitudeDelta: LATITUDE_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        }}
-        initialCamera={{
-          center: {
+const MapScreen = ( {navigation} ) => {
+  const [points, setPoints] = useState([]);
+  useEffect(() => {
+    fetch('http://fosetest.org/Street_Ends__Shoreline_.geojson')
+      .then((response) => response.json())
+      .then((json) => {setPoints(json.features); console.log(json)})
+      .catch((error) => console.error(error))
+      .finally(() => {setLoading(false);
+        console.log(points)});
+  }, []);
+    return (
+      <View style={mapStyles.container}>
+        <MapView
+          provider={PROVIDER_GOOGLE}
+          style={mapStyles.map}
+          initialRegion={{
             latitude: LATITUDE,
             longitude: LONGITUDE,
-          },
-          pitch: 0,
-          heading: 0,
-          altitude: 1000,
-          zoom: 11,
-        }}
-      />
-    </View>
-  );
-};
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          }}
+          initialCamera={{
+            center: {
+              latitude: LATITUDE,
+              longitude: LONGITUDE,
+            },
+            pitch: 0,
+            heading: 0,
+            altitude: 1000,
+            zoom: 11,
+          }}
+          >
+          {points.map((marker, index) => (
+            <Marker
+              key={index}
+              coordinate={{'longitude': marker.geometry.coordinates[0], 'latitude': marker.geometry.coordinates[1]}}
+              title={marker.title}
+              description={marker.description}
+            />
+          ))}
+        </MapView>
+      </View>
+    );
+  };
 
 export default MapScreen;
