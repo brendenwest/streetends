@@ -7,7 +7,7 @@ import {
     Text,
     View,
   } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, Marker } from 'react-native-maps';
 import Header from '../../GlobalComponents/Header';
 import 'react-native-gesture-handler';
 import Footer from '../../GlobalComponents/Footer';
@@ -36,6 +36,17 @@ const mapStyles = StyleSheet.create({
 });
 
 const MapScreen = ( {navigation} ) => {
+
+  const [points, setPoints] = useState([]);
+
+  useEffect(() => {
+    fetch('http://fosetest.org/Street_Ends__Shoreline_.geojson')
+      .then((response) => response.json())
+      .then((json) => {setPoints(json.features); console.log(json)})
+      .catch((error) => console.error(error))
+      .finally(() => {setLoading(false);
+        console.log(points)});
+  }, []);
     return (
       <View style={mapStyles.container}>
         <MapView
@@ -58,6 +69,14 @@ const MapScreen = ( {navigation} ) => {
             zoom: 11,
           }}
           >
+          {points.map((marker, index) => (
+            <Marker
+              key={index}
+              coordinate={{'longitude': marker.geometry.coordinates[0], 'latitude': marker.geometry.coordinates[1]}}
+              title={marker.title}
+              description={marker.description}
+            />
+          ))}
         </MapView>
       </View>
     );
