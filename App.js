@@ -60,7 +60,6 @@ function MyTabs() {
           ),
         }}
       />
-      
       <Tab.Screen
         name="Events"
         component={EventScreen}
