@@ -93,7 +93,7 @@ export default function App() {
   <StoreProvider>
     <NavigationContainer>
       {/* <MyTabs /> */}
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
          <Stack.Screen
           name="MyTabs"
           component={MyTabs}

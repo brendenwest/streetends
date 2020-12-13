@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   titleText: {
-    fontSize: 36,
+    fontSize: 24,
     padding: 5,
     fontWeight: 'bold',
     fontFamily: 'sans-serif-condensed',
