@@ -18,9 +18,9 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="About"
+      initialRouteName="Home"
       tabBarOptions={{
-        activeTintColor: '#e91e63',
+        activeTintColor: '#65a188',
       }}
     >
       <Tab.Screen
@@ -49,7 +49,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'About',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="details" color={color} size={size} />
+            <MaterialCommunityIcons name="information-outline" color={color} size={size} />
           ),
         }}
       />
@@ -59,7 +59,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Contact',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="email-outline" color={color} size={size} />
           ),
         }}
       />
@@ -69,7 +69,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Events',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons name="calendar" color={color} size={size} />
           ),
         }}
       />
@@ -79,7 +79,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'List',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons name="format-line-weight" color={color} size={size} />
           ),
         }}
       />
@@ -93,7 +93,7 @@ export default function App() {
   <StoreProvider>
     <NavigationContainer>
       {/* <MyTabs /> */}
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
          <Stack.Screen
           name="MyTabs"
           component={MyTabs}
