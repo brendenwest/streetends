@@ -10,7 +10,7 @@ import {
 import MapView, { PROVIDER_GOOGLE, PROVIDER_DEFAULT, Marker } from 'react-native-maps';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
-
+import Geolocation from 'react-native-geolocation-service';
 const IOS = Platform.OS === 'ios';
 const ANDROID = Platform.OS === 'android';
 const {width, height} = Dimensions.get('window');
@@ -34,12 +34,27 @@ const mapStyles = StyleSheet.create({
   },
 });
 
+Geolocation.getCurrentPosition(
+  (position) => {
+    const currentLongitude = JSON.stringify(position.coords.longitude)
+    const currentLatitude = JSON.stringify(position.coords.latitude)
+      console.log(position);
+      console.log(currentLongitude);
+      console.log(currentLatitude);
+  },
+  (error) => {
+      // See error code charts below.
+      console.log(error.code, error.message);
+  },
+  { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+);
+
 const MapScreen = ( {navigation} ) => {
   const [points, setPoints] = useState([]);
   useEffect(() => {
     fetch('http://fosetest.org/Street_Ends__Shoreline_.geojson')
       .then((response) => response.json())
-      .then((json) => {setPoints(json.features); console.log(json)})
+      .then((json) => {setPoints(json.features); })
       .catch((error) => console.error(error))
       .finally(() => {setLoading(false);
         console.log(points)});
