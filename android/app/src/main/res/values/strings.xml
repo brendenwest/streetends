@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">streetends</string>
-    <string name="google_maps_api_key">AIzaSyCILb4Rd6Z_s9oJG525HnxYHR0Ypf9BaaY</string>
+    <string name="google_maps_api_key"></string>
 </resources>
