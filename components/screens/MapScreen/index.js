@@ -36,26 +36,25 @@ const mapStyles = StyleSheet.create({
   },
 });
 
-const getUserLocation = () =>
-  Geolocation.getCurrentPosition(
-    (position) => {
-      const currentLongitude = JSON.stringify(position.coords.longitude);
-      const currentLatitude = JSON.stringify(position.coords.latitude);
-      console.log(position);
-      console.log(currentLongitude);
-      console.log(currentLatitude);
-    },
-
-    (error) => {
-      // See error code charts below.
-      console.log(error.code, error.message);
-    },
-    {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-  );
-
 const MapScreen = ({navigation}) => {
   const [points, setPoints] = useState([]);
 
+  const [userLatitude, setUserLatitude] = useState(0);
+  const [userLongitude, setUserLongitude] = useState(0);
+
+  const getUserLocation = () =>
+    Geolocation.getCurrentPosition(
+      (position) => {
+        setUserLongitude(position.coords.longitude),
+          setUserLatitude(position.coords.latitude);
+        console.log(userLatitude);
+      },
+      (error) => {
+        // See error code charts below.
+        console.log(error.code, error.message);
+      },
+      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+    );
   useEffect(() => {
     fetch('http://fosetest.org/Street_Ends__Shoreline_.geojson')
       .then((response) => response.json())
@@ -70,15 +69,16 @@ const MapScreen = ({navigation}) => {
   }, []);
 
   const mapMarkers = () => {
-    return points.map((point, index) =>
-        <Marker
-            key={index}
-            coordinate={{'longitude': point.geometry.coordinates[0], 'latitude': point.geometry.coordinates[1]}}
-            title={point.properties.INTERSECTION}
-            description={point.properties.COMMENTS}
-        >
-        </Marker>
-    )
+    return points.map((point, index) => (
+      <Marker
+        key={index}
+        coordinate={{
+          longitude: point.geometry.coordinates[0],
+          latitude: point.geometry.coordinates[1],
+        }}
+        title={point.properties.INTERSECTION}
+        description={point.properties.COMMENTS}></Marker>
+    ));
   };
 
   return (
@@ -104,6 +104,7 @@ const MapScreen = ({navigation}) => {
           zoom: 11,
         }}>
         {mapMarkers()}
+        <Marker coordinate={{latitude: userLatitude, longitude: userLongitude}}/>
       </MapView>
       <Button
         icon={
