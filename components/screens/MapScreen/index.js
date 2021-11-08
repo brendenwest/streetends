@@ -39,15 +39,12 @@ const mapStyles = StyleSheet.create({
 const MapScreen = ({navigation}) => {
   const [points, setPoints] = useState([]);
 
-  const [userLatitude, setUserLatitude] = useState(0);
-  const [userLongitude, setUserLongitude] = useState(0);
+  const [userLocation, setUserLocation] = useState({latitude: 0, longitude:0})
 
-  const getUserLocation = () =>
+  useEffect(() => {
     Geolocation.getCurrentPosition(
       (position) => {
-        setUserLongitude(position.coords.longitude),
-          setUserLatitude(position.coords.latitude);
-        console.log(userLatitude);
+        setUserLocation({latitude: position.coords.latitude,  longitude: position.coords.longitude})
       },
       (error) => {
         // See error code charts below.
@@ -55,6 +52,7 @@ const MapScreen = ({navigation}) => {
       },
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
+  });
   useEffect(() => {
     fetch('http://fosetest.org/Street_Ends__Shoreline_.geojson')
       .then((response) => response.json())
@@ -104,7 +102,9 @@ const MapScreen = ({navigation}) => {
           zoom: 11,
         }}>
         {mapMarkers()}
-        <Marker coordinate={{latitude: userLatitude, longitude: userLongitude}}/>
+        <Marker
+          coordinate={{latitude: userLocation.latitude, longitude: userLocation.longitude}}
+        />
       </MapView>
       <Button
         icon={
@@ -117,7 +117,7 @@ const MapScreen = ({navigation}) => {
           />
         }
         style={mapStyles.button}
-        onPress={getUserLocation}
+        //onPress={getUserLocation}
       />
     </View>
   );
