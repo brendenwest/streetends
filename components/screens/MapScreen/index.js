@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Platform, Dimensions, StyleSheet, Text, View} from 'react-native';
 import MapView, {
   PROVIDER_GOOGLE,
@@ -32,27 +32,17 @@ const mapStyles = StyleSheet.create({
   },
   button: {
     position: 'absolute',
-    alignItems: 'right',
+    alignSelf: 'flex-end',
+    top:'50%'
   },
 });
 
 const MapScreen = ({navigation}) => {
   const [points, setPoints] = useState([]);
 
-  const [userLocation, setUserLocation] = useState({latitude: 0, longitude:0})
+  const [location, setLocation] = useState({latitude: 0, longitude: 0});
 
-  useEffect(() => {
-    Geolocation.getCurrentPosition(
-      (position) => {
-        setUserLocation({latitude: position.coords.latitude,  longitude: position.coords.longitude})
-      },
-      (error) => {
-        // See error code charts below.
-        console.log(error.code, error.message);
-      },
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-    );
-  });
+  const mapRef = useRef();
   useEffect(() => {
     fetch('http://fosetest.org/Street_Ends__Shoreline_.geojson')
       .then((response) => response.json())
@@ -65,6 +55,34 @@ const MapScreen = ({navigation}) => {
         console.log(points);
       });
   }, []);
+
+  // Get current location coordinates on start
+  useEffect(() => {
+    Geolocation.getCurrentPosition(
+      (position) => {
+        setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      },
+      (error) => {
+        // See error code charts below.
+        console.log(error.code, error.message);
+      },
+      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+    );
+  });
+
+  // Re-Center map and zoom into user location on button press
+  const centerUserLoc = () => {
+    const userRegion = {
+      latitude: location.latitude,
+      longitude: location.longitude,
+      latitudeDelta: .02,
+      longitudeDelta: .02,
+    };
+    mapRef.current.animateToRegion(userRegion, 350)
+  };
 
   const mapMarkers = () => {
     return points.map((point, index) => (
@@ -84,7 +102,9 @@ const MapScreen = ({navigation}) => {
       <MapView
         provider={PROVIDER_GOOGLE}
         style={mapStyles.map}
-        showsUserLocation={true}
+        showsUserLocation={false}
+        showsMyLocationButton={false}
+        ref={mapRef}
         initialRegion={{
           latitude: LATITUDE,
           longitude: LONGITUDE,
@@ -103,7 +123,12 @@ const MapScreen = ({navigation}) => {
         }}>
         {mapMarkers()}
         <Marker
-          coordinate={{latitude: userLocation.latitude, longitude: userLocation.longitude}}
+          coordinate={{
+            latitude: location.latitude,
+            longitude: location.longitude,
+          }}
+          title={"You are here"}
+          pinColor={'blue'}
         />
       </MapView>
       <Button
@@ -111,13 +136,13 @@ const MapScreen = ({navigation}) => {
           <Icon
             raised
             name="gps-fixed"
-            size={15}
+            size={30}
             color="white"
             iconPosition="right"
           />
         }
         style={mapStyles.button}
-        //onPress={getUserLocation}
+        onPress={centerUserLoc}
       />
     </View>
   );
