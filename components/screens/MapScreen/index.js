@@ -68,6 +68,19 @@ const MapScreen = ({navigation}) => {
         console.log(points);
       });
   }, []);
+
+  const mapMarkers = () => {
+    return points.map((point, index) =>
+        <Marker
+            key={index}
+            coordinate={{'longitude': point.geometry.coordinates[0], 'latitude': point.geometry.coordinates[1]}}
+            title={point.properties.INTERSECTION}
+            description={point.properties.COMMENTS}
+        >
+        </Marker>
+    )
+  };
+
   return (
     <View style={mapStyles.container}>
       <MapView
@@ -90,17 +103,7 @@ const MapScreen = ({navigation}) => {
           altitude: 1000,
           zoom: 11,
         }}>
-        {points.map((marker, index) => (
-          <Marker
-            key={index}
-            coordinate={{
-              longitude: marker.geometry.coordinates[0],
-              latitude: marker.geometry.coordinates[1],
-            }}
-            title={marker.title}
-            description={marker.description}
-          />
-        ))}
+        {mapMarkers()}
       </MapView>
       <Button
         icon={
