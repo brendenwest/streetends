@@ -1,93 +1,134 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   TouchableHighlight,
   TextInput,
   StyleSheet,
   View,
+  Alert,
 } from 'react-native';
-import {Icon, Button} from 'react-native-elements';
+import { Icon, Button } from 'react-native-elements';
 export default class ContactForm extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      firstName:'', 
-      lastName:'',
-      email:'',
-      message:'',
+      firstName: '',
+      lastName: '',
+      email: '',
+      message: '',
     }
   }
 
-  updateValue(text,field){
-    if(field=='firstName'){
+  updateValue(text, field) {
+
+    if (field == 'firstname') {
       this.setState({
-        firstName:text,
+        firstName: text,
       })
     }
-    else if(field=='lastName'){
+    else if (field == 'lastname') {
       this.setState({
-        lastName:text,
+        lastName: text,
       })
     }
-    else if(field=='email'){
+    else if (field == 'email') {
       this.setState({
-        email:text,
-       })
+        email: text,
+      })
     }
-    else if(field=='message'){
+    else if (field == 'message') {
       this.setState({
-        message:text,
-       })
+        message: text,
+      })
     }
-  }
- 
-  submit(){
-    let collection={}
-    collection.firstName=this.state.firstName;
-    collection.lastName=this.state.lastName;
-    collection.email=this.state.email;
-    collection.message=this.state.message;
-    console.warn(collection);
   }
 
-  fetchContacts = () => {
+  submit() {
+
+    let { firstName, lastName, email, message } = this.state
+
+    if (firstName === '' || lastName === '' || email === '' || message === '') {
+    
+        Alert.alert(
+          "Alert",
+          "Please fill all the fields",
+          [
+            {
+              text: "Cancel",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel"
+            },
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ],
+          { cancelable: false }
+        );
+
+      return
+    }else{
+      this.submitContactData()
+    }
+
+  }
+
+  submitContactData = () => {
+    let { firstName, lastName, email, message } = this.state
+    let payload = { firstName, lastName, email, message }
+
+    console.log("payload", payload)
+
     var url = "https://streetends-api.herokuapp.com/contacts";
 
     fetch(url, {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify(),
-      headers: new Headers({ 'Content-Type': 'application/json'})
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: new Headers({ 'Content-Type': 'application/json' })
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', collection);
+        Alert.alert(
+          "Alert",
+          "Data Saved Successfully!",
+          [
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ],
+          { cancelable: false }
+        );
       })
       .catch((error) => {
         console.error('Error:', error);
+
+        Alert.alert(
+          "Alert",
+          "Problem saving your data please try again later",
+          [
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ],
+          { cancelable: false }
+        );
       });
   }
- 
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.boxtext}>First Name</Text>
-        <TextInput style={styles.input} ref="firstName" />
+        <TextInput style={styles.input} ref="firstName" onChangeText={(text) => this.updateValue(text, 'firstname')} />
         <Text style={styles.boxtext}>Last Name</Text>
-        <TextInput style={styles.input} ref="lastName" />
+        <TextInput style={styles.input} ref="lastName" onChangeText={(text) => this.updateValue(text, 'lastname')} />
         <Text style={styles.boxtext}>Email</Text>
-        <TextInput style={styles.input} ref="email" />
+        <TextInput style={styles.input} ref="email" onChangeText={(text) => this.updateValue(text, 'email')} />
         <Text style={styles.boxtext}>Message</Text>
         <TextInput
           style={styles.input2}
           ref="message"
           placeholder="Enter your message"
           multiline={true}
-          onChangeText={(text)=>this.updateValue(text,'message')}
+          onChangeText={(text) => this.updateValue(text, 'message')}
         />
 
         <TouchableHighlight >
-          <Button buttonStyle={styles.button} title="Submit" onPress={this.fetchContacts}/>
+          <Button buttonStyle={styles.button} title="Submit" onPress={()=>{this.submit()}} />
         </TouchableHighlight>
       </View>
     );
