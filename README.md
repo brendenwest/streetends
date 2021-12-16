@@ -5,9 +5,9 @@ Welcome to the Street Ends mobile app Github. The Steet Ends app aims to offer y
 
 Contributors:
 Fall 2021
-Bikash Thapa
-Crystal Broderick
-Eftu Wakjira
+Bikash Thapa,
+Crystal Broderick,
+Eftu Wakjira,
 Jonathon Kindle
 
 <div>
