@@ -4,6 +4,7 @@ import MapView, {
   PROVIDER_GOOGLE,
   PROVIDER_DEFAULT,
   Marker,
+  Callout,
 } from 'react-native-maps';
 import Header from '../../GlobalComponents/Header';
 import Footer from '../../GlobalComponents/Footer';
@@ -35,6 +36,36 @@ const mapStyles = StyleSheet.create({
     alignSelf: 'flex-end',
     top:'50%'
   },
+  bubble: {
+    flexDirection: 'column',
+    alignSelf: 'flex-start',
+    backgroundColor: '#fff',
+    borderRadius: 6,
+    borderColor: '#ccc',
+    borderWidth: 0.5,
+    padding: 15,
+    width: 200,
+  },
+  arrow: {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    borderTopColor: '#fff',
+    borderWidth: 16,
+    alignSelf: 'center',
+    marginTop: -32,
+  },
+  arrowBorder: {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    borderTopColor: '#007a87',
+    borderWidth: .6,
+    alignSelf: 'center',
+    marginTop: -0.5,
+  },
+  name: {
+    fontSize: 12,
+    marginBottom: 5,
+  }
 });
 
 const MapScreen = ({navigation}) => {
@@ -85,15 +116,27 @@ const MapScreen = ({navigation}) => {
   };
 
   const mapMarkers = () => {
-    return points.map((point, index) => (
-      <Marker
+return points.map((point, index) => (
+        <Marker
         key={index}
         coordinate={{
           longitude: point.geometry.coordinates[0],
           latitude: point.geometry.coordinates[1],
         }}
+//        title="TOTALLY"
         title={point.properties.INTERSECTION}
-        description={point.properties.COMMENTS}></Marker>
+        >
+        <Callout tooltip>
+            <View>
+                <View style={mapStyles.bubble}>
+                    <Text style={mapStyles.name}>{point.properties.INTERSECTION}</Text>
+                    <Text></Text>
+                </View>
+                <View style={mapStyles.arrowBorder} />
+                <View style={mapStyles.arrow} />
+            </View>
+        </Callout>
+        </Marker>
     ));
   };
 
