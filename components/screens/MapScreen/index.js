@@ -37,6 +37,9 @@ const mapStyles = StyleSheet.create({
     padding:20,
    alignItems: 'flex-end',
   },
+  btn: {
+    marginTop:10
+  },
   bubble: {
     flexDirection: 'column',
     alignSelf: 'flex-start',
