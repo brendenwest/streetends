@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {Platform, Dimensions, StyleSheet, Text, View} from 'react-native';
+import {Platform, Dimensions, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import MapView, {
   PROVIDER_GOOGLE,
   PROVIDER_DEFAULT,
@@ -22,19 +22,25 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 const mapStyles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFillObject,
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent:'flex-end'
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    flex:1
   },
-  button: {
-    position: 'absolute',
-    alignSelf: 'flex-end',
-    top:'50%'
+  BtnContainer: {
+    flexDirection: 'column',
+    justifyContent:'flex-end',
+    bottom: 15,
+    padding:20,
+   alignItems: 'flex-end',
   },
+  btn: {
+    backgroundColor: 'black',
+    marginTop:10,
+  }
+
 });
 
 const MapScreen = ({navigation}) => {
@@ -81,7 +87,7 @@ const MapScreen = ({navigation}) => {
       latitudeDelta: .02,
       longitudeDelta: .02,
     };
-    mapRef.current.animateToRegion(userRegion, 350)
+    mapRef.current.animateToRegion(userRegion, 1000)
   };
 
   const mapMarkers = () => {
@@ -96,6 +102,16 @@ const MapScreen = ({navigation}) => {
         description={point.properties.COMMENTS}></Marker>
     ));
   };
+
+  const initialRegion = () => {
+    const initialRegion = {
+      latitude: LATITUDE,
+      longitude: LONGITUDE,
+      latitudeDelta: LATITUDE_DELTA,
+      longitudeDelta: LONGITUDE_DELTA,
+  };
+  mapRef.current.animateToRegion(initialRegion, 1000)
+};
 
   return (
     <View style={mapStyles.container}>
@@ -131,18 +147,21 @@ const MapScreen = ({navigation}) => {
           pinColor={'blue'}
         />
       </MapView>
+      <View style={mapStyles.BtnContainer}>
       <Button
         icon={
           <Icon
             raised
             name="gps-fixed"
-            size={30}
+            size={20}
             color="white"
           />
         }
-        style={mapStyles.button}
+        title={ ' Location' }
         onPress={centerUserLoc}
-      />
+      /> 
+      <TouchableOpacity style={mapStyles.btn}><Button title={'Seattle Area'}  onPress={initialRegion}></Button></TouchableOpacity>
+      </View>
     </View>
   );
 };
